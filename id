@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Example</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-+JQfPOCvJ2x6zK5j8w9ZtJ5yJ3X0Ld7zJWJ5lJQz9Jz8qQJzVY5JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7Q==" crossorigin=""/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" integrity="sha512-+JQfPOCvJ2x6zK5j8w9ZtJ5yJ3X0Ld7zJWJ5lJQz9Jz8qQJzVY5JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7JQJ5z6UZJjz8gZz7Z8jJ5tX7Q==" crossorigin=""></script>
+</head>
+<body>
+    <div id="mapid" style="height: 500px;"></div>
+    <script>
+        var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'your.mapbox.access.token'
+        }).addTo(mymap);
+
+        var carJack = L.marker([51.5, -0.09]).addTo(mymap);
+        carJack.bindPopup("<b>Car Jack
